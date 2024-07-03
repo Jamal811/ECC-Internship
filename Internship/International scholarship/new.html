@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Scholarship Requirements and IELTS Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: linear-gradient(132deg, rgb(251, 251, 255) 0.00%, rgb(215, 223, 252) 100.00%);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .button-85 {
+      width: 130px;
+      padding: 0.6em 2em;
+      border: none;
+      outline: none;
+      color: rgb(255, 255, 255);
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .button-85:before {
+      content: "";
+      background: linear-gradient(45deg,
+          #ff0000,
+          #ff7300,
+          #fffb00,
+          #48ff00,
+          #00ffd5,
+          #002bff,
+          #7a00ff,
+          #ff00c8,
+          #ff0000);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing-button-85 20s linear infinite;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    @keyframes glowing-button-85 {
+      0% {
+        background-position: 0 0;
+      }
+
+      50% {
+        background-position: 400% 0;
+      }
+
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    .button-85:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #222;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    .details {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .PScholarship ul li {
+      font-size: small;
+      margin-bottom: 4px;
+    }
+
+    .PScholarship a {
+      text-decoration: none;
+    }
+
+    .scholarship a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .scholarship p {
+      padding: 0;
+      margin-bottom: 1px;
+      font-size: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .details h2 {
+        font-size: medium;
+      }
+
+      .details ul li {
+        font-size: small;
+      }
+
+      .details p {
+        font-size: small;
+      }
+
+      .details h3 {
+        font-size: medium;
+      }
+
+      .PScholarship h3 {
+        font-size: medium;
+      }
+
+      .PScholarship ul li {
+        font-size: small;
+        margin-bottom: 4px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="button-container">
+    <button class="button-85" onclick="toggleDetails('scholarship-details')">
+      Scholarship Requirements
+    </button>
+    <button class="button-85" onclick="toggleDetails('ielts-details')">
+      IELTS Details
+    </button>
+    <button class="button-85" onclick="toggleDetails('duolingo-details')">
+      Duolingo Details
+    </button>
+    <button class="button-85" onclick="toggleDetails('toefl-details')">
+      TOEFL Details
+    </button>
+
+    <button class="button-85" onclick="toggleDetails('explore-scholarships')">
+      Explore Scholarships
+    </button>
+
+
+
+  </div>
+
+  <div id="scholarship-details" class="details">
+    <h2>Common Scholarship Requirements</h2>
+    <ul>
+      <li>Completed application form</li>
+      <li>Official academic transcripts</li>
+      <li>Letters of recommendation</li>
+      <li>Personal statement or essay</li>
+      <li>Proof of financial need (for need-based scholarships)</li>
+      <li>Proof of English proficiency (e.g., IELTS or TOEFL scores)</li>
+      <li>Resume or CV</li>
+    </ul>
+  </div>
+
+  <div id="ielts-details" class="details">
+    <h2>IELTS Details</h2>
+    <p>
+      The International English Language Testing System (IELTS) is a
+      standardized test designed to assess the English language proficiency of
+      non-native English speakers. It is widely accepted by universities,
+      employers, and immigration authorities around the world.
+    </p>
+    <h3>Common IELTS Score Requirements</h3>
+    <ul>
+      <li>Overall band score of 6.5 or higher</li>
+      <li>No individual band score below 6.0</li>
+      <li>
+        Some programs may require higher scores, particularly for postgraduate
+        studies
+      </li>
+    </ul>
+    <p>
+      IELTS scores range from 0 to 9, with each band corresponding to a
+      specific level of English proficiency:
+    </p>
+    <ul>
+      <li><b>9</b>: Expert user</li>
+      <li><b>8</b>: Very good user</li>
+      <li><b>7</b>: Good user</li>
+      <li><b>6</b>: Competent user</li>
+      <li><b>5</b>: Modest user</li>
+      <li><b>4</b>: Limited user</li>
+      <li><b>3</b>: Extremely limited user</li>
+      <li><b>2</b>: Intermittent user</li>
+      <li><b>1</b>: Non-user</li>
+      <li><b>0</b>: Did not attempt the test</li>
+    </ul>
+  </div>
+  <div id="duolingo-details" class="details">
+    <h2>Duolingo Details</h2>
+    <p>The Duolingo English Test is an online test that measures your English proficiency. It is accepted by many
+      universities as an alternative to IELTS and TOEFL.</p>
+    <h3>Common Duolingo Score Requirements</h3>
+    <ul>
+      <li>Score of 100 or higher</li>
+      <li>Some programs may require higher scores, particularly for postgraduate studies</li>
+    </ul>
+  </div>
+
+  <div id="toefl-details" class="details">
+    <h2>TOEFL Details</h2>
+    <p>The Test of English as a Foreign Language (TOEFL) measures the English language proficiency of non-native
+      speakers. It is widely accepted by universities and institutions around the world.</p>
+    <h3>Common TOEFL Score Requirements</h3>
+    <ul>
+      <li>Overall score of 80 or higher</li>
+      <li>No individual section score below 20</li>
+      <li>Some programs may require higher scores, particularly for postgraduate studies</li>
+  </div>
+  <div class="PScholarship">
+    <h3>Some Popular International Scholarships are</h3>
+    <ul>
+      <li><a
+          href="https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters">Erasmus
+          Mundus Joint Masters
+        </a></li>
+      <li><a href="https://www.chinesescholarshipcouncil.com/">Chinese Government Scholarships
+
+        </a></li>
+      <li><a href="https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/">DAAD Scholarships
+        </a></li>
+    </ul>
+  </div>
+  <div id="explore-scholarships" class="details" style="display: none;">
+    <h3>International Scholarships for Pakistani Students</h3>
+    <div class="scholarship">
+      <h5> <a href="https://www.usefp.org/">Fulbright Scholarships (United States)</a></h5>
+      <p>Fully funded scholarships for Master's and PhD programs.</p>
+      <p>Covers tuition, airfare, living stipend, and health insurance.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://www.turkiyeburslari.gov.tr/">Türkiye Scholarships (Turkey)</a>)</h5>
+      <p>
+        Government-funded scholarships for undergraduate, master's, and PhD
+        programs.
+      </p>
+      <p>
+        Covers financial support, tuition fees, accommodation, health
+        insurance, and university placement.
+      </p>
+      <p>Applications open from January 10 to February 20, 2024.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://www.pk.emb-japan.go.jp/itpr_en/MEXT_Research_Scholarship.html">MEXT Scholarships
+          (Japan)</a>)</h5>
+      <p>
+        Offered by the Japanese government for undergraduate, master's, and
+        PhD programs.
+      </p>
+      <p>Covers tuition, monthly stipend, and travel expenses.</p>
+      <p>17th May 2024</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://vanier.gc.ca/en/home-accueil.html">Vanier Canada Graduate Scholarships (Canada)</a></h5>
+      <p>For PhD programs, providing $50,000 per year for three years.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5><a href="https://future.utoronto.ca/finances/awards/admission-awards/">University of Toronto Scholarships
+          (Canada)</a></h5>
+      <p>Available for undergraduate, master's, and PhD programs.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5><a href="https://www.mcgill.ca/gradapplicants/funding/external/mccall-macbain-scholarship">McCall MacBain
+          Scholarships at McGill University (Canada)</a></h5>
+      <p>Fully funded scholarships for master's or professional degrees.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships">Australia
+          Awards Scholarships (Australia)</a></h5>
+      <p>For undergraduate, master's, and PhD programs.</p>
+      <p>
+        Covers tuition fees, travel expenses, living allowance, and health
+        insurance.
+      </p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://gradresearch.unimelb.edu.au/scholarships">University of Melbourne Graduate Research
+          Scholarships (Australia)</a>
+
+      </h5>
+      <p>Available for master's and PhD programs.</p>
+      <p>
+        Covers tuition, living allowance, relocation grant, and health
+        insurance.
+      </p>
+    </div>
+
+    <div class="scholarship">
+      <h5><a href="https://che.kfupm.edu.sa/academic-programs/scholarships">King Fahd University Scholarships (Saudi
+          Arabia)</a></h5>
+      <p>For MS and PhD programs.</p>
+      <p>
+        Covers tuition, monthly stipend, free furnished air-conditioned
+        bachelor housing, essential medical care, and free textbooks.
+      </p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a href="https://grad.tdtu.edu.vn/en/scholarship/tdtu-graduate-scholarship">Ton Duc Thang University
+          Scholarships (Vietnam)</a></h5>
+      <p>For master's and PhD programs.</p>
+      <p>Covers tuition and offers a stipend.</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a
+          href="https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/#:~:text=The%20Rhodes%20Scholarship%20is%20a%20fully%20funded%2C%20full%20time%2C%20postgraduate,of%20young%20people%20to%20succeed.">Rhodes
+          Scholarships at Oxford University (UK)</a></h5>
+      <p> <b>Level:</b> Masters/PhD</p>
+      <p><b>Deadline: </b> July-October 2024</p>
+    </div>
+
+    <div class="scholarship">
+      <h5> <a
+          href="https://www.sydney.edu.au/scholarships/e/university-sydney-international-scholarship.html">University of
+          Sydney International Scholarship (Australia)</a> </h5>
+      <p><b>Level:</b> Masters/PhD</p>
+      <p> <b>Deadline:</b> September 13/December 17, 2024</p>
+    </div>
+
+    <div class="scholarship">
+      <h5><a
+          href="https://www.scholars4dev.com/3282/italian-government-scholarships-for-international-students/">Italian
+          Government Scholarships (Italy)
+        </a></h5>
+      <p> <b>Level:</b> Masters/PhD</p>
+      <p> <b>Deadline:</b> June 14, 2024</p>
+    </div>
+
+    <div class="scholarship">
+      <h5><a
+          href="https://www.education.gov.au/research-block-grants/research-training-program#:~:text=The%20Research%20Training%20Program%20(RTP,on%20a%20calendar%20year%20basis.">Australian
+          Government Research Training Program (RTP) (Australia)
+        </a></h5>
+      </h2>
+      <p> <b>Level:</b> Masters/PhD</p>
+      <h6> <b>Deadline</b></h6>
+      <p>Research Period 1 and 2, 2025 13 September 2024
+      </p>
+      <p>Research Period 3 and 4, 2025 17 December 2024</p>
+      <a style="font-weight: bold; font-size: 10px;"
+        https://www.opportunitiescircle.com/australian-government-research-training-program/#:~:text=Australian%20Government%20RTP%20scholarships%20for,a%20higher%20degree%20by%20research.">Visit
+        for full details</a>
+    </div>
+  </div>
+
+
+  <script>
+    function toggleDetails(sectionId) {
+      const sections = ['scholarship-details', 'ielts-details', 'duolingo-details', 'toefl-details', 'explore-scholarships'];
+      sections.forEach(id => {
+        const element = document.getElementById(id);
+        if (id === sectionId) {
+          element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'block' : 'none';
+        } else {
+          element.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
