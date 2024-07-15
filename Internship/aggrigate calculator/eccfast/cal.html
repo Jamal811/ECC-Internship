@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregate Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<style>
+    #results {
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .background-image {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 400px;
+        background-image: url('./logo.jfif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+
+    }
+
+    #results h2,
+    #entryTestScore,
+    #aggregateScore {
+        position: relative;
+        z-index: 1;
+    }
+
+    #results p {
+        position: relative;
+        z-index: 1;
+        color: black;
+        background-color: transparent;
+        text-align: justify;
+        margin-left: 50px;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+
+    @media (max-width: 768px) {
+
+        input[type="number"],
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            font-size: 0.9em;
+        }
+    }
+</style>
+
+<body style="font-family: Arial, sans-serif; background-color: #87CEEB; margin: 0; padding: 0;">
+    <div
+        style="width: 50%; margin: auto; background: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 50px;">
+        <h1 style="text-align: center;">Aggregate Calculator</h1>
+        <form id="calculatorForm">
+            <div style="margin-bottom: 20px;">
+                <h2 style="text-align: center;">Advanced Maths Section</h2>
+                <label for="tam" style="display: block; margin: 10px 0 5px;">Total attempted questions:</label>
+                <input type="number" id="tam" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <label for="am" style="display: block; margin: 10px 0 5px;">Correct answers:</label>
+                <input type="number" id="am" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h2 style="text-align: center;">English Section</h2>
+                <label for="tem" style="display: block; margin: 10px 0 5px;">Total attempted questions:</label>
+                <input type="number" id="tem" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <label for="em" style="display: block; margin: 10px 0 5px;">Correct answers:</label>
+                <input type="number" id="em" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h2 style="text-align: center;">Basic Maths Section</h2>
+                <label for="tbm" style="display: block; margin: 10px 0 5px;">Total attempted questions:</label>
+                <input type="number" id="tbm" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <label for="bm" style="display: block; margin: 10px 0 5px;">Correct answers:</label>
+                <input type="number" id="bm" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h2 style="text-align: center;">IQ/Analytical Section</h2>
+                <label for="tiqm" style="display: block; margin: 10px 0 5px;">Total attempted questions:</label>
+                <input type="number" id="tiqm" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <label for="iqm" style="display: block; margin: 10px 0 5px;">Correct answers:</label>
+                <input type="number" id="iqm" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h2 style="text-align: center;">Matric Marks</h2>
+                <label for="obt_matric" style="display: block; margin: 10px 0 5px;">Obtained marks:</label>
+                <input type="number" id="obt_matric" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <label for="total_matric" style="display: block; margin: 10px 0 5px;">Total marks:</label>
+                <input type="number" id="total_matric" required
+                    style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <button type="button" onclick="calculateAggregate(); showResults();"
+                style="display: block; width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Calculate</button>
+        </form>
+
+        <div id="results" style="margin-top: 20px; text-align: center; font-size: 1.2em;">
+
+        </div>
+        <button type="button" onclick="exportResults()"
+            style="display: block; width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px;">Export
+            as JPG</button>
+    </div>
+    <script>
+        function calculateAggregate() {
+            const tam = parseInt(document.getElementById("tam").value);
+            const am = parseInt(document.getElementById("am").value);
+            const fam = tam - am;
+
+            const tem = parseInt(document.getElementById("tem").value);
+            const em = parseInt(document.getElementById("em").value);
+            const fem = tem - em;
+
+            const tbm = parseInt(document.getElementById("tbm").value);
+            const bm = parseInt(document.getElementById("bm").value);
+            const fbm = tbm - bm;
+
+            const tiqm = parseInt(document.getElementById("tiqm").value);
+            const iqm = parseInt(document.getElementById("iqm").value);
+            const fiqm = tiqm - iqm;
+
+            document.getElementById("results").innerHTML = `
+            <div class="background-image" id="backgroundImage"></div>
+            <h2>Erudite Coaching Centre</h2>
+            <p style="font-weight:bold;" id="entryTestScore"></p>
+            <p style="font-weight:bold;" id="aggregateScore"></p>
+          `;
+
+            const EntryTest_percent =
+                am +
+                fam * -1 * 0.25 +
+                em * 0.33 +
+                fem * -0.33 * 0.25 +
+                bm +
+                fbm * -0.25 +
+                iqm +
+                fiqm * -0.25;
+            const EntryTest_marks = EntryTest_percent.toFixed(2);
+
+            document.getElementById("entryTestScore").innerText =
+                "Your Entry test score is: " + EntryTest_marks;
+
+            const obt_matric = parseInt(document.getElementById("obt_matric").value);
+            const total_matric = parseInt(document.getElementById("total_matric").value);
+            const percent_matric = (obt_matric / total_matric) * 100;
+            const matric_agg = 0.5 * percent_matric;
+            const entrytest_agg = 0.5 * EntryTest_percent;
+            const Total_agg = (matric_agg + entrytest_agg).toFixed(2);
+
+            document.getElementById("aggregateScore").innerText =
+                "Your aggregate is: " + Total_agg;
+
+            document.getElementById("results").innerHTML += `
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Total attempted advanced maths questions: ${tam}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Correct advanced maths answers: ${am}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Total attempted English questions: ${tem}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Correct English answers: ${em}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Total attempted basic maths questions: ${tbm}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Correct basic maths answers: ${bm}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Total attempted IQ questions: ${tiqm}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Correct IQ answers: ${iqm}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Obtained matric marks: ${obt_matric}</p>
+              <p style="font-size: 0.7em; color: black; font-weight:bold; ">Total matric marks: ${total_matric}</p>
+          `;
+        }
+
+        function exportResults() {
+            const resultsDiv = document.getElementById("results");
+            html2canvas(resultsDiv).then((canvas) => {
+                const link = document.createElement("a");
+                link.href = canvas.toDataURL("image/jpeg");
+                link.download = "results.jpg";
+                link.click();
+            });
+        }
+        function showResults() {
+            document.getElementById("backgroundImage").style.display = "block";
+        }
+
+    </script>
+</body>
+
+</html>
